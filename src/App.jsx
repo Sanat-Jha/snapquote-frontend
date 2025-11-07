@@ -32,13 +32,24 @@ export default function App() {
 
   const handleLogin = async () => {
     try {
+      // Call the login endpoint to get the authorization URL
       const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
         credentials: 'include'
       });
-      // Regardless of success or failure, navigate to dashboard
-      navigate('/dashboard');
+      
+      const data = await response.json();
+      
+      if (data.success && data.authorization_url) {
+        // Redirect to Google OAuth page
+        window.location.href = data.authorization_url;
+      } else {
+        console.error('Failed to get authorization URL:', data.message);
+        // Still try to navigate to dashboard in case of error
+        navigate('/dashboard');
+      }
     } catch (error) {
-      // On error, also navigate to dashboard
+      console.error('Login error:', error);
+      // On error, navigate to dashboard
       navigate('/dashboard');
     }
   };
