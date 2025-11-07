@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import DecryptedText from "./DecryptedText";
 
-const API_BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = 'https://snapquote-backend.eastus2.cloudapp.azure.com/';
 
 export default function Dashboard() {
   const navigate = useNavigate();
