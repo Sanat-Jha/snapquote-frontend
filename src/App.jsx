@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Dashboard from "./Dashboard.jsx";
 import ShinyText from "./ShinyText.jsx"; // import the animation
 
-const API_BASE_URL = 'https://snapquote-backend.eastus2.cloudapp.azure.com';
+const API_BASE_URL = 'http://127.0.0.1:5000';
 
 export default function App() {
   const navigate = useNavigate();
